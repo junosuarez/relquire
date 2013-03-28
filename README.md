@@ -15,6 +15,14 @@ require modules relative to your project's root directory.
 
     foo()
 
+## api
+
+### `relquire(id), relquire(id, base)`
+Requires the module relative to as `base` directory. If `base` is not specified, defaults to the package root of the module requiring `relquire`.
+
+### `relquire.findBase(dir)`
+Finds the closest package.json-containing directory (package root).
+
 ## running the tests
 
 From package root:
