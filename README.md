@@ -17,11 +17,15 @@ require modules relative to your project's root directory.
 
 ## api
 
-### `relquire(id), relquire(id, base)`
-Requires the module relative to as `base` directory. If `base` is not specified, defaults to the package root of the module requiring `relquire`.
+### `relquire(id)`, `relquire(id, baseDir)`
+Requires the module relative to the `baseDir` directory. If `baseDir` is not specified, defaults to the package root of the module requiring `relquire`.
 
 ### `relquire.findBase(dir)`
 Finds the closest package.json-containing directory (package root).
+
+### `relquire.resolve(id)`, `resolquire(id, baseDir)
+Resolves a file path relative to the `baseDir` directory. If `baseDir` is not specified, defaults to the package root of the module requiring `relquire`.
+
 
 ## running the tests
 

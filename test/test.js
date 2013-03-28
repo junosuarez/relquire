@@ -23,3 +23,12 @@ describe('findBase', function () {
     base.should.equal(__dirname)
   })
 })
+
+describe('resolve', function () {
+  it('resolves filenames relative to the package base dir', function () {
+    relquire.resolve('~/test/test.js').should.equal(__filename)
+  })
+  it('takes an optional base dir override', function () {
+    relquire.resolve('~/test.js', __dirname).should.equal(__filename)
+  })
+})

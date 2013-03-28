@@ -7,9 +7,14 @@ function relquire (id, base) {
   if (id.indexOf('~/') !== 0 ) {
     throw new Error('use `require` instead for globally namespaced or relative requires')
   }
+  id = resolve(id, base)
+  return require(id)
+}
+
+function resolve(id, base) {
   id = '.' + id.substr(1)
   id = path.resolve(base || packageBase, id)
-  return require(id)
+  return id
 }
 
 function findBase(start) {
@@ -27,3 +32,4 @@ function findBase(start) {
 
 module.exports = relquire
 module.exports.findBase = findBase
+module.exports.resolve = resolve
