@@ -31,4 +31,9 @@ describe('resolve', function () {
   it('takes an optional base dir override', function () {
     relquire.resolve('~/test.js', __dirname).should.equal(__filename)
   })
+  it('passes through if path does not start with a tilde', function () {
+    relquire.resolve('foo').should.equal('foo')
+    relquire.resolve('../foo').should.equal('../foo')
+    relquire.resolve('./qux').should.equal('./qux')
+  })
 })

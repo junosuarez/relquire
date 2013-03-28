@@ -12,6 +12,10 @@ function relquire (id, base) {
 }
 
 function resolve(id, base) {
+  if (id.indexOf('~/') !== 0 ) {
+    return id
+  }
+  
   id = '.' + id.substr(1)
   id = path.resolve(base || packageBase, id)
   return id
