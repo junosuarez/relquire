@@ -1,5 +1,6 @@
 var path = require('path')
 var fs = require('fs')
+var SEP = path.sep
 
 var packageBase = findBase()
 
@@ -24,10 +25,10 @@ function resolve(id, base) {
 function findBase(start) {
   start = start || module.parent.filename
   if (typeof start === 'string') {
-    start = start.split('/')
+    start = start.split(SEP)
   }
   start.pop()
-  var path = start.join('/')
+  var path = start.join(SEP)
   if (fs.existsSync(path + '/package.json')) {
     return path
   }
