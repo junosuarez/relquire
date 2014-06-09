@@ -1,5 +1,6 @@
 var chai = require('chai')
 chai.should()
+var path = require('path')
 
 var relquire = require('../index')
 
@@ -19,7 +20,7 @@ describe('relquire', function () {
 
 describe('findBase', function () {
   it('finds the closest package.json-containing directory', function () {
-    var base = relquire.findBase(__dirname) + '/test'
+    var base = path.join(relquire.findBase(__dirname), 'test')
     base.should.equal(__dirname)
   })
 })
